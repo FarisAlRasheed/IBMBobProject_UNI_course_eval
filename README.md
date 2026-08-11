@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# University Course Evaluation System
 
-## Getting Started
+## Overview
+A web application for managing university course evaluations. Students
+submit evaluations for their courses, and academic administration gets a
+dashboard to track and analyze the results.
 
-First, run the development server:
+## Track: Software Engineering | Tool: IBM Bob | Mode: Individual
 
-```bash
+## Tech stack
+- Frontend + Backend: Next.js (App Router), React
+- Database: Supabase (PostgreSQL)
+
+## Database structure
+[Paste an ERD or a short description of the courses and evaluations tables here]
+
+## API documentation
+[Paste the endpoint table Bob gives you at the end of Step 2 — Endpoint / Method / Input / Output]
+
+## Running locally
+\`\`\`bash
+npm install
+# Create .env.local with:
+# NEXT_PUBLIC_SUPABASE_URL=...
+# NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Live link
+[Vercel link here]
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Scope and limitations of the current version
+- No real login/identity verification — replaced with role selection
+  and a free-text student ID, a deliberate decision due to the tight
+  submission timeline (7-day task, actual build completed in under 4
+  hours on the final day)
+- Courses are fixed seed data, not manageable through a UI
+- RLS policies allow open public read/write, suitable for a demo only,
+  not production-ready
