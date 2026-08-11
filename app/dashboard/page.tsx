@@ -1,6 +1,10 @@
 import { getEvaluationSummary } from "@/lib/getEvaluationSummary";
 import CourseCard from "@/components/CourseCard";
 
+// Always render on the server at request time so the dashboard reflects
+// the latest evaluations without needing a redeploy.
+export const dynamic = "force-dynamic";
+
 export default async function DashboardPage() {
   const summary = await getEvaluationSummary();
 
