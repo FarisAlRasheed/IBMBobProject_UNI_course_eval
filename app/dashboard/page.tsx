@@ -1,22 +1,8 @@
-import type { EvaluationSummary } from "@/lib/types";
+import { getEvaluationSummary } from "@/lib/getEvaluationSummary";
 import CourseCard from "@/components/CourseCard";
 
-async function getSummary(): Promise<EvaluationSummary[] | null> {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
-  try {
-    const res = await fetch(`${baseUrl}/api/evaluations/summary`, {
-      cache: "no-store",
-    });
-    if (!res.ok) return null;
-    const json = await res.json();
-    return json.summary ?? [];
-  } catch {
-    return null;
-  }
-}
-
 export default async function DashboardPage() {
-  const summary = await getSummary();
+  const summary = await getEvaluationSummary();
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
