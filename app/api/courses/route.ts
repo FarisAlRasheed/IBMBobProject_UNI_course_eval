@@ -1,15 +1,7 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { getCourses } from "@/lib/getCourses";
 
 export async function GET() {
-  const { data, error } = await supabase
-    .from("courses")
-    .select("*")
-    .order("name", { ascending: true });
-
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
-  }
-
-  return NextResponse.json({ courses: data });
+  const courses = await getCourses();
+  return NextResponse.json({ courses });
 }

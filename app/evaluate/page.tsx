@@ -1,13 +1,5 @@
-import { Course } from "@/lib/types";
+import { getCourses } from "@/lib/getCourses";
 import EvaluateForm from "./EvaluateForm";
-
-async function getCourses(): Promise<Course[]> {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
-  const res = await fetch(`${baseUrl}/api/courses`, { cache: "no-store" });
-  if (!res.ok) return [];
-  const json = await res.json();
-  return json.courses ?? [];
-}
 
 export default async function EvaluatePage() {
   const courses = await getCourses();
